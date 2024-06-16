@@ -3,32 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PRAKASH'S Encrypt/Decrypt App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Web-Based Facial Authentication</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Encrypt and Decrypt Text</h1>
-        <form method="POST">
-            <textarea name="text" placeholder="Enter your text here" required>{{ original_text if original_text else '' }}</textarea>
-            <div class="buttons">
-                <button type="submit" name="action" value="encrypt">Encrypt</button>
-                <button type="submit" name="action" value="decrypt">Decrypt</button>
-            </div>
-        </form>
-        {% with messages = get_flashed_messages(with_categories=true) %}
-          {% if messages %}
-            <ul class="flashes">
-              {% for category, message in messages %}
-                <li class="{{ category }}">{{ message }}</li>
-              {% endfor %}
-            </ul>
-          {% endif %}
-        {% endwith %}
-        {% if result_text %}
-            <h2>Result:</h2>
-            <p>{{ result_text }}</p>
-        {% endif %}
+    <h1>Web-Based Facial Authentication</h1>
+    <div>
+        <img id="videoFeed" src="{{ url_for('video_feed') }}" width="640" height="480">
     </div>
 </body>
 </html>
